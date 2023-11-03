@@ -10,16 +10,16 @@ if (!$conn) {
 // Escape user inputs for security
 $name = mysqli_real_escape_string($conn, $_POST['name']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
-$phone = mysqli_real_escape_string($conn, $_POST['phone']);
+
 $message = mysqli_real_escape_string($conn, $_POST['message']);
 
 // Attempt to insert the data into the table
-$sql = "INSERT INTO contact_us(name, email, phone, message) VALUES ('$name', '$email', '$phone', '$message')";
+$sql = "INSERT INTO contact_us(name, email,  message) VALUES ('$name', '$email',  '$message')";
 
 if (mysqli_query($conn, $sql)) {
   // Success message
   echo "Your message has been sent successfully.";
-  header("Location: contact us.html");
+  header("Location: contact.html");
 exit();
 } else {
   // Error message
